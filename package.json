@@ -1,0 +1,27 @@
+{
+  "name": "gha-outdated",
+  "version": "1.0.0",
+  "description": "Check for outdated GitHub Actions in your workflow files",
+  "main": "bin/index.js",
+  "bin": {
+    "gha-outdated": "./bin/index.js"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "workflow",
+    "version",
+    "check",
+    "outdated"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpitty03/gha-outdated.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jpitty03/gha-outdated/issues"
+  },
+  "homepage": "https://github.com/jpitty03/gha-outdated#readme"
+}
