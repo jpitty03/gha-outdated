@@ -1,0 +1,11 @@
+- uses: actions/checkout@v2  # Latest is v4
+- uses: actions/cache@v1     # Latest is v4
+- uses: actions/setup-node@v1 # Latest is v4
+- uses: actions/setup-python@v1 # Latest is v4
+- uses: crazy-max/ghaction-xgo@v3
+
+  actions/setup-java@v1   # Latest is v3
+  crazy-max/ghaction-xgo@v3
+
+  uses: sliteteam/github-action-git-crypt-unlock@0.2.0
+  uses: mxschmitt/action-tmate@v1
