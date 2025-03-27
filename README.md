@@ -13,7 +13,19 @@ in your workflow files. By default, it checks:
 - `.github/workflows`
 - `.gitlab/workflows`
 
- Then queries the GitHub API to get the latest tag from the [actions/*](https://github.com/actions) repository, and reports if your declared version is outdated.
+ Then queries the GitHub API to get the latest tag from the [actions/*](https://github.com/actions) repository or other custom actions, and reports if your declared version is outdated.
+
+## Benefits
+
+- Zero Configuration: Works out of the box with no setup
+
+- No Dependencies: Uses only Node.js standard library
+
+- Fast Execution: Checks multiple actions in parallel
+
+- Simple Output: Clear display of what needs to be updated
+
+- Non-Invasive: Read-only operation, doesn't modify your files
 
 ## Installation
 
