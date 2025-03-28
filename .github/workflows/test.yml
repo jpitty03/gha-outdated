@@ -1,0 +1,70 @@
+name: Test Workflow with Outdated Actions
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Latest is v4
+      
+      - name: Cache dependencies
+        uses: actions/cache@v1     # Latest is v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v1 # Latest is v4
+        with:
+          node-version: '16'
+      
+      - name: Set up Python
+        uses: actions/setup-python@v1 # Latest is v4
+        with:
+          python-version: '3.10'
+      
+      - name: Set up Java
+        uses: actions/setup-java@v1   # Latest is v3
+        with:
+          java-version: '11'
+      
+      - name: Cross compile with xgo
+        uses: crazy-max/ghaction-xgo@v3
+        with:
+          dest: build
+          targets: linux/amd64,windows/amd64,darwin/amd64
+      
+      - name: Unlock git-crypt secrets
+        uses: sliteteam/github-action-git-crypt-unlock@1.2.0
+        env:
+          GIT_CRYPT_KEY: secrets
+      
+      - name: Setup tmate session for debugging
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v1
+
+  second-job:
+    runs-on: ubuntu-latest
+    needs: test-job
+    
+    steps:
+      - name: Another checkout example
+        uses: actions/checkout@v2
+        
+      - name: Another Node.js setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          
+      - name: Run a simple command
+        run: echo "This job demonstrates using the same outdated actions in multiple jobs"
