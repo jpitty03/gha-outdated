@@ -10,8 +10,9 @@ const majorOnly = args.includes('-m') || args.includes('-M') || args.includes('-
 const showHelp = args.includes('-h') || args.includes('-H') || args.includes('--help');
 
 // Show help if requested
-if (showHelp) {
+if (showHelp || (!showHelp && !majorOnly && args.length > 0)) {
   console.log(`
+Unknown command: ${args.join(' ')}
 gha-outdated - Check for outdated GitHub Actions in workflow files
 
 Usage:

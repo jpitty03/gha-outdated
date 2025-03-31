@@ -1,6 +1,6 @@
 {
   "name": "gha-outdated",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Check for outdated GitHub Actions in your workflow files",
   "main": "bin/index.js",
   "bin": {
