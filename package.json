@@ -1,10 +1,23 @@
 {
   "name": "gha-outdated",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Check for outdated GitHub Actions in your workflow files",
-  "main": "bin/index.js",
+  "main": "lib/index.js",
   "bin": {
     "gha-outdated": "bin/index.js"
+  },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\"",
+    "coverage": "c8 node --test \"test/**/*.test.js\"",
+    "lint": "eslint .",
+    "check": "npm run lint && npm run coverage"
   },
   "keywords": [
     "github",
@@ -23,5 +36,11 @@
   "bugs": {
     "url": "https://github.com/jpitty03/gha-outdated/issues"
   },
-  "homepage": "https://github.com/jpitty03/gha-outdated#readme"
+  "homepage": "https://github.com/jpitty03/gha-outdated#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "c8": "^10.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^16.0.0"
+  }
 }
