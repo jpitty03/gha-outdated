@@ -14,8 +14,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test \"test/**/*.test.js\"",
-    "coverage": "c8 node --test \"test/**/*.test.js\"",
+    "test": "node --test test",
+    "coverage": "c8 node --test test",
     "lint": "eslint .",
     "check": "npm run lint && npm run coverage"
   },
